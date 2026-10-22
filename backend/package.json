@@ -1,0 +1,24 @@
+{
+  "name": "estoque-backend",
+  "version": "1.0.0",
+  "description": "API REST do Sistema de Controle de Estoque - Projeto Integrador (Faculdade Gran)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning app.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch app.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "keywords": [
+    "estoque",
+    "express",
+    "sqlite",
+    "projeto-integrador"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

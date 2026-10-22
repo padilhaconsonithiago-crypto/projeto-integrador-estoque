@@ -1,0 +1,373 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-22T13:27:28.174Z",
+  "__export_source": "insomnia.desktop.app:v8.6.1",
+  "resources": [
+    {
+      "_id": "wrk_estoque",
+      "_type": "workspace",
+      "parentId": null,
+      "name": "Projeto Integrador - Controle de Estoque",
+      "description": "Requisições para testar a API do backend.",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_estoque",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000"
+      }
+    },
+    {
+      "_id": "fld_fornecedores",
+      "_type": "request_group",
+      "parentId": "wrk_estoque",
+      "name": "1. Fornecedores",
+      "metaSortKey": 1
+    },
+    {
+      "_id": "fld_produtos",
+      "_type": "request_group",
+      "parentId": "wrk_estoque",
+      "name": "2. Produtos",
+      "metaSortKey": 2
+    },
+    {
+      "_id": "fld_associacao",
+      "_type": "request_group",
+      "parentId": "wrk_estoque",
+      "name": "3. Associação Produto/Fornecedor",
+      "metaSortKey": 3
+    },
+    {
+      "_id": "req_01",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Cadastrar fornecedor",
+      "method": "POST",
+      "url": "{{ _.base_url }}/fornecedores",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Distribuidora Alfa Ltda\",\n  \"cnpj\": \"11.222.333/0001-81\",\n  \"endereco\": \"Rua das Flores, 100 - Centro - Gravataí/RS\",\n  \"telefone\": \"(51) 3333-4444\",\n  \"email\": \"contato@alfa.com.br\",\n  \"contato\": \"Maria Souza\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 1
+    },
+    {
+      "_id": "req_02",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Cadastrar 2º fornecedor",
+      "method": "POST",
+      "url": "{{ _.base_url }}/fornecedores",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Beta Comércio de Eletrônicos\",\n  \"cnpj\": \"45.723.174/0001-10\",\n  \"endereco\": \"Av. Brasil, 2000 - Porto Alegre/RS\",\n  \"telefone\": \"(51) 99999-8888\",\n  \"email\": \"vendas@beta.com.br\",\n  \"contato\": \"João Pereira\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 2
+    },
+    {
+      "_id": "req_03",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Cadastrar com CNPJ já existente (409)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/fornecedores",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Distribuidora Alfa Ltda\",\n  \"cnpj\": \"11.222.333/0001-81\",\n  \"endereco\": \"Rua das Flores, 100 - Centro - Gravataí/RS\",\n  \"telefone\": \"(51) 3333-4444\",\n  \"email\": \"contato@alfa.com.br\",\n  \"contato\": \"Maria Souza\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 3
+    },
+    {
+      "_id": "req_04",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Cadastrar com dados inválidos (400)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/fornecedores",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"\",\n  \"cnpj\": \"12.345.678/0001-00\",\n  \"endereco\": \"\",\n  \"telefone\": \"123\",\n  \"email\": \"email-invalido\",\n  \"contato\": \"\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 4
+    },
+    {
+      "_id": "req_05",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Listar fornecedores",
+      "method": "GET",
+      "url": "{{ _.base_url }}/fornecedores",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 5
+    },
+    {
+      "_id": "req_06",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Buscar fornecedor por id",
+      "method": "GET",
+      "url": "{{ _.base_url }}/fornecedores/1",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 6
+    },
+    {
+      "_id": "req_07",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Atualizar fornecedor",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/fornecedores/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Distribuidora Alfa Ltda\",\n  \"cnpj\": \"11.222.333/0001-81\",\n  \"endereco\": \"Rua das Flores, 100 - Centro - Gravataí/RS\",\n  \"telefone\": \"(51) 3333-4444\",\n  \"email\": \"contato@alfa.com.br\",\n  \"contato\": \"Ana Lima\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 7
+    },
+    {
+      "_id": "req_08",
+      "_type": "request",
+      "parentId": "fld_fornecedores",
+      "name": "Excluir fornecedor",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/fornecedores/2",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 8
+    },
+    {
+      "_id": "req_09",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Cadastrar produto",
+      "method": "POST",
+      "url": "{{ _.base_url }}/produtos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Notebook 15 polegadas\",\n  \"codigoBarras\": \"7891234567895\",\n  \"descricao\": \"Notebook com 16 GB de RAM e SSD de 512 GB\",\n  \"preco\": 3599.9,\n  \"quantidade\": 10,\n  \"categoria\": \"Eletrônicos\",\n  \"dataValidade\": null,\n  \"imagem\": null\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 9
+    },
+    {
+      "_id": "req_10",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Cadastrar produto com validade",
+      "method": "POST",
+      "url": "{{ _.base_url }}/produtos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Arroz Integral 1 kg\",\n  \"codigoBarras\": \"7896543210982\",\n  \"descricao\": \"Pacote de arroz integral tipo 1\",\n  \"preco\": 8.49,\n  \"quantidade\": 120,\n  \"categoria\": \"Alimentos\",\n  \"dataValidade\": \"2027-06-30\",\n  \"imagem\": null\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 10
+    },
+    {
+      "_id": "req_11",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Cadastrar com código de barras já existente (409)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/produtos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Notebook 15 polegadas\",\n  \"codigoBarras\": \"7891234567895\",\n  \"descricao\": \"Notebook com 16 GB de RAM e SSD de 512 GB\",\n  \"preco\": 3599.9,\n  \"quantidade\": 10,\n  \"categoria\": \"Eletrônicos\",\n  \"dataValidade\": null,\n  \"imagem\": null\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 11
+    },
+    {
+      "_id": "req_12",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Cadastrar com dados inválidos (400)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/produtos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"\",\n  \"codigoBarras\": \"ABC\",\n  \"descricao\": \"\",\n  \"quantidade\": -5,\n  \"categoria\": \"\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 12
+    },
+    {
+      "_id": "req_13",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Listar produtos",
+      "method": "GET",
+      "url": "{{ _.base_url }}/produtos",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 13
+    },
+    {
+      "_id": "req_14",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Buscar produto por id",
+      "method": "GET",
+      "url": "{{ _.base_url }}/produtos/1",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 14
+    },
+    {
+      "_id": "req_15",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Atualizar produto",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/produtos/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Notebook 15 polegadas\",\n  \"codigoBarras\": \"7891234567895\",\n  \"descricao\": \"Notebook com 16 GB de RAM e SSD de 512 GB\",\n  \"preco\": 3599.9,\n  \"quantidade\": 8,\n  \"categoria\": \"Eletrônicos\",\n  \"dataValidade\": null,\n  \"imagem\": null\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 15
+    },
+    {
+      "_id": "req_16",
+      "_type": "request",
+      "parentId": "fld_produtos",
+      "name": "Excluir produto",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/produtos/2",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 16
+    },
+    {
+      "_id": "req_17",
+      "_type": "request",
+      "parentId": "fld_associacao",
+      "name": "Associar fornecedor ao produto",
+      "method": "POST",
+      "url": "{{ _.base_url }}/produtos/1/fornecedores",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"fornecedorId\": 1\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 17
+    },
+    {
+      "_id": "req_18",
+      "_type": "request",
+      "parentId": "fld_associacao",
+      "name": "Associar fornecedor já associado (409)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/produtos/1/fornecedores",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"fornecedorId\": 1\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaSortKey": 18
+    },
+    {
+      "_id": "req_19",
+      "_type": "request",
+      "parentId": "fld_associacao",
+      "name": "Listar fornecedores do produto",
+      "method": "GET",
+      "url": "{{ _.base_url }}/produtos/1/fornecedores",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 19
+    },
+    {
+      "_id": "req_20",
+      "_type": "request",
+      "parentId": "fld_associacao",
+      "name": "Listar produtos do fornecedor",
+      "method": "GET",
+      "url": "{{ _.base_url }}/fornecedores/1/produtos",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 20
+    },
+    {
+      "_id": "req_21",
+      "_type": "request",
+      "parentId": "fld_associacao",
+      "name": "Desassociar fornecedor do produto",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/produtos/1/fornecedores/1",
+      "body": {},
+      "headers": [],
+      "metaSortKey": 21
+    }
+  ]
+}
