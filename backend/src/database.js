@@ -43,4 +43,6 @@ db.exec(`
   );
 `);
 
+require('./dadosExemplo')(db);
+
 module.exports = db;
